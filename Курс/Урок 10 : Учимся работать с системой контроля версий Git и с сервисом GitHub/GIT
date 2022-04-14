@@ -28,6 +28,11 @@ githowto.com/ru - тонкости работы с git
     git config --global user.name "Name"
     git config --global user.email example@mail.com
 
+    На стороне GitHub 
+        git remote add origin https://github.com/BarilkoDA/JS-course.git
+        git branch -M main  
+        git push -u origin main
+
 Работа:
 
     git status (получить статус в репозитории)
@@ -38,5 +43,5 @@ githowto.com/ru - тонкости работы с git
     git log (Список коммитов кто, когда, кем)
     
 Отправка в GitHub:
-    git 
+    git push -u origin master (Пуш файлов в репозиторий)
     git 
