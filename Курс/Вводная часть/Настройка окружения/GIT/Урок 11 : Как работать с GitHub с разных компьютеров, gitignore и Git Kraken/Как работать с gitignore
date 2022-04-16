@@ -1,0 +1,21 @@
+gitignore - существует для фильтрации файлов которые мы не хотим пушить в репозиторий
+            - Папки настроек
+            - То что не хотим выкладывать в интернет
+            Примеры: 
+                - /node_modules - отвечает за правильность работы и запуск приложения
+                                  может весить 200-300 мегабайт
+                                  при попытке запушить тратиться время.
+                                  также потребуется качать все файлы
+                - /coverage
+                - /build
+                - .DS_Store
+                - .env.local
+                .env.development.local
+                .env.test.local
+                .env.production local
+
+                npm-debug/log*
+                year-debug.log*
+                yearn-error.log*
+
+Сервис GitKraken - офф сайт: https://www.gitkraken.com/ - программа которая помагает работать с github repository
