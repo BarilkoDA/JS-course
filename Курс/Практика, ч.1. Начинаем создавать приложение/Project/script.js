@@ -9,9 +9,9 @@ const numberOfFilms = +prompt("Сколько фильмов вы уже пос�
         privat:false // - в это свойство поместить boolean(логическое) значение false
     };
 
-let answer1,
+/* let answer1,
     answer2,
-    i = 0;
+    i = 0; */
 // Цикл while
 /* 
 while (i < 2) {
@@ -49,7 +49,7 @@ while (i < 2); */
 
 // Цикл for
 
-for (let i = 0; i < 2; i++)
+/* for (let i = 0; i < 2; i++)
 {
     while (true) {
         answer1 = prompt("Один из последних просмотренных фильмов?", "");
@@ -57,8 +57,16 @@ for (let i = 0; i < 2; i++)
             continue;
         }
         else {
-            answer2 = prompt("На сколько оцените его?", "");
-            personalMovieDB.movies[answer1] = answer2;
+            while (true) {
+                answer2 = prompt("На сколько оцените его?", "");
+                if (answer2 == "" || answer2 == null || answer2.length > 50) {
+                    continue;
+                }
+                else {
+                    personalMovieDB.movies[answer1] = answer2;
+                    break;
+                }
+            }
             break;
         }
     }
@@ -69,6 +77,34 @@ if (numberOfFilms < 10) {
 } else if (numberOfFilms >= 10 && numberOfFilms < 30) {
     console.log('Вы классический зритель');
 } else if (numberOfFilms >= 30) {
+    console.log('Вы киноман');
+} else {
+    console.log('Произошла ошибка');
+}    
+
+console.log(personalMovieDB); */
+
+// решение из урока
+
+for (let i = 0; i < 2; i++)
+{
+    const a = prompt("Один из последних просмотренных фильмов?", ""),
+          b = prompt("На сколько оцените его?", "");
+
+    if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+        personalMovieDB.movies[a] = b;
+        console.log('done');
+    } else {
+        console.log('error');
+        i--;
+    }
+}
+
+if (personalMovieDB.count < 10) {
+    console.log('Просмотрено довольно мало фильмов');
+} else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+    console.log('Вы классический зритель');
+} else if (personalMovieDB.count >= 30) {
     console.log('Вы киноман');
 } else {
     console.log('Произошла ошибка');
