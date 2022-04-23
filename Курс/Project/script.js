@@ -63,14 +63,12 @@ function showMyDB(privat) {
 
 showMyDB(personalMovieDB.privat);
 
-let genres = [];
-
 function writeYourGenres() {
     for (let i = 0; i < 3; i++) {
         let question = prompt(`Ваш любимый жанр под номером ${1 + i}`, "");
-        genres[i] = question;
+        personalMovieDB.genres[i] = question;
     }
 }
 
 writeYourGenres();
-console.log(genres);
+console.log(personalMovieDB.genres);
