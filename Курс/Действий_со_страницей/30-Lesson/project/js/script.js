@@ -24,37 +24,53 @@ const movieDB = {
     ]
 };
 
-const film_genre = document.getElementsByClassName('promo__genre');
+const filmGenre = document.querySelector('.promo__genre');
 
-const promo = document.querySelectorAll('.promo__adv');
+const promo = document.querySelectorAll('.promo__adv img');
 
-const promo_img = promo[0].getElementsByTagName('img');
+//const promo_img = promo[0].getElementsByTagName('img');
 
-const background = document.getElementsByClassName('promo__bg');
+const background = document.querySelector('.promo__bg');
 
-const list = document.getElementsByClassName("promo__interactive-item");
+const list = document.querySelector(".promo__interactive-list");
 
 // 1 task
 
 //promo_img[0].remove(); // remove block
 
-for (let i = 0; i < promo_img.length; i++) {
+/* for (let i = 0; i < promo_img.length; i++) {
     promo_img[i].remove();
     i--;
-}
+} */
+
+promo.forEach(item => {
+    item.remove();
+}); 
 
 // 2 task
 
-film_genre[0].textContent = 'ДРАМА';
+filmGenre.textContent = 'драма';
 
 // 3 task 
 
-background[0].style.backgroundImage = 'url(./img/bg.jpg)';
+background.style.backgroundImage = 'url("img/bg.jpg")';
 
 // 4 and 5 task
 
 movieDB.movies.sort();
 
-for (let i = 0; i < list.length; i++) {
+/* for (let i = 0; i < list.length; i++) {
     list[i].textContent = `${i + 1} : ${movieDB.movies[i]}`;
-}
+} */
+
+list.innerHTML = "";
+
+/* list.forEach((qwe, i) => {
+    qwe.textContent = `${i + 1} : ${movieDB.movies[i]}`;
+}); */
+
+movieDB.movies.forEach((film, i) => {
+    list.innerHTML += `<li class="promo__interactive-item">${i + 1} : ${film}
+    <div class="delete"></div>
+</li>`; // += - дополнительное присваивание
+});
